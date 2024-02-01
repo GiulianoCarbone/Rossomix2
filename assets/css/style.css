@@ -84,7 +84,7 @@ h3 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  z-index: 997;
+  z-index: 9999999;
   transition: all 0.5s;
   padding: 22px 0;
   background: #fff;
