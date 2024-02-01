@@ -1691,15 +1691,18 @@ section {
     border-radius: 25px;
   }
 }
-.botoncover {
-  background-color: #ffffff;
-  width: 191px;
-  height: 28px;
-  position: absolute;
-  margin: -40px 0 0 855px;
-  z-index: 999999;
+@media (min-width: 768px) {
+  .botoncover {
+    background-color: #ffffff;
+    width: 191px;
+    height: 28px;
+    position: absolute;
+    margin: -40px 0 0 855px;
+    z-index: 999999;
+  
+  }
+  }
 
-}
 .botoncover2 {
   background-color: #ffffff;
   width: 191px;
