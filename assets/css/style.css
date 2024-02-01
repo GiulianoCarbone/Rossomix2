@@ -1691,3 +1691,12 @@ section {
     border-radius: 25px;
   }
 }
+.botoncover {
+  background-color: #fff;
+  width: 191px;
+  height: 28px;
+  position: absolute;
+  margin: -40px 0 0 855px;
+  z-index: 999999;
+
+}
