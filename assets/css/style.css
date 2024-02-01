@@ -1692,11 +1692,19 @@ section {
   }
 }
 .botoncover {
-  background-color: #fff;
+  background-color: #ffffff;
   width: 191px;
   height: 28px;
   position: absolute;
   margin: -40px 0 0 855px;
   z-index: 999999;
 
+}
+.botoncover2 {
+  background-color: #ffffff;
+  width: 191px;
+  height: 28px;
+  position: absolute;
+  margin: -42px 0 0 97px;
+  z-index: 999999;
 }
