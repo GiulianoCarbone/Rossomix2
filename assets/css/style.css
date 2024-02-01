@@ -364,7 +364,7 @@ h3 {
 }
 
 #hero h1 {
-  margin: 0 0 10px 0;
+  margin: 0 0 0px 0;
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
@@ -436,7 +436,7 @@ h3 {
   #hero h2 {
     font-size: 18px;
     line-height: 24px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
   }
 
   #hero .hero-img img {
