@@ -1711,3 +1711,6 @@ section {
   margin: -46px 0 0 97px;
   z-index: 999999;
 }
+.imscale:hover {
+  transform: scale(1.05);
+}
