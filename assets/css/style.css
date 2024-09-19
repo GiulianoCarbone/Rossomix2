@@ -710,6 +710,7 @@ section {
   transition: all 0.3s;
   z-index: -1;
 }
+
 @media (min-width: 800px) {
 .services .icon-box:hover::before {
   background: #F07C00;
@@ -879,6 +880,14 @@ section {
 .features .icon-box:hover h3 a{
   color: #fff;
 }
+@media (max-width: 800px) {
+  .features .icon-box:hover h3 a{
+    color: #F07C00;
+  }
+  .features .icon-box:hover .icon2 i{
+    color: #F07C00;
+  }
+  }
 .icon2  {
   color: #102A83;
 }
