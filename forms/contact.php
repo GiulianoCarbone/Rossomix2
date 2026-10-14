@@ -1,41 +1,56 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+/**
+* Esto reemplaza el archivo contact.php para Rossomix
+* Recibirá los datos del formulario y los enviará a ventas@rossomix.com.ar
+*/
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'ventas@rossomix.com.ar';
+// Evita que se acceda al script directamente
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    die("Acceso no permitido");
+}
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+// ****** CONFIGURACIÓN ******
+// Aquí es donde se define el correo que recibirá los mensajes.
+$receiving_email_address = 'ventas@rossomix.com.ar';
+// ***************************
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+// Limpia y recoge los datos del formulario
+$name = filter_var(trim($_POST['name']), FILTER_SANITIZE_STRING);
+$email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+$subject = filter_var(trim($_POST['subject']), FILTER_SANITIZE_STRING);
+$message = trim($_POST['message']);
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+// Validación simple: asegúrate de que los campos no estén vacíos
+if (empty($name) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($subject) || empty($message)) {
+    // Si algún campo falla la validación, envía un mensaje de error.
+    // El script de tu web (validate.js) NO mostrará este mensaje, pero es una buena práctica tenerlo.
+    http_response_code(400);
+    die('Por favor, completa todos los campos correctamente.');
+}
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+// Construye el cuerpo del correo
+$email_content = "Nombre: $name\n";
+$email_content .= "Email: $email\n\n";
+$email_content .= "Asunto: $subject\n";
+$email_content .= "Mensaje:\n$message\n";
 
-  echo $contact->send();
+// Construye las cabeceras del correo
+// Es importante establecer un 'From' del mismo dominio para evitar que se marque como spam.
+$email_headers = "From: Formulario Web Rossomix <no-reply@rossomix.com.ar>\r\n";
+$email_headers .= "Reply-To: $email\r\n";
+$email_headers .= "X-Mailer: PHP/" . phpversion();
+
+// Envía el correo
+// La función mail() depende de la configuración del servidor de hosting.
+if (mail($receiving_email_address, "Nuevo mensaje de contacto: $subject", $email_content, $email_headers)) {
+    // Si el envío es exitoso, devuelve un código 200 (OK).
+    // El script validate.js necesita una respuesta vacía o un texto simple para mostrar el mensaje de éxito.
+    http_response_code(200);
+    // No es necesario devolver un mensaje aquí. El front-end lo gestiona.
+} else {
+    // Si la función mail() falla, devuelve un error de servidor.
+    http_response_code(500);
+    die('Hubo un error al enviar el mensaje.');
+}
+
 ?>

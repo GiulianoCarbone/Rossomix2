@@ -11,7 +11,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #444444;
+  color: #102A83;
 }
 
 a {
@@ -106,7 +106,7 @@ h3 {
 
 #header .logo h1 a,
 #header .logo h1 a:hover {
-  color: #222222;
+  color: #102A83;
   text-decoration: none;
 }
 
@@ -248,7 +248,7 @@ h3 {
 * Mobile Navigation
 */
 .mobile-nav-toggle {
-  color: #222222;
+  color: #102A83;
   font-size: 28px;
   cursor: pointer;
   display: none;
@@ -306,7 +306,7 @@ h3 {
 .navbar-mobile a:focus {
   padding: 10px 20px;
   font-size: 15px;
-  color: #222222;
+  color: #102A83;
 }
 
 .navbar-mobile a:hover,
@@ -359,8 +359,8 @@ h3 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 95vh;
-  margin-top: -190px;
+  height: auto;
+  margin-top: 0;
 }
 
 #hero h1 {
@@ -617,7 +617,7 @@ section {
 .counts .content h3 {
   font-weight: 700;
   font-size: 34px;
-  color: #222222;
+  color: #102A83;
 }
 
 .counts .content p {
@@ -642,7 +642,7 @@ section {
   line-height: 30px;
   display: block;
   font-weight: 700;
-  color: #222222;
+  color: #102A83;
   margin-left: 50px;
 }
 
@@ -809,7 +809,7 @@ section {
 }
 
 .more-services .card-title a {
-  color: #222222;
+  color: #102A83;
 }
 
 .more-services .card-text {
@@ -885,12 +885,13 @@ section {
     color: #F07C00;
   }
   .features .icon-box:hover .icon2 i{
-    color: #102A83;
+    color: #ff0000;
   }
   }
 .icon2  {
   color: #102A83;
 }
+
 .features .icon-box:hover .icon2 i{
   color: #ffffff;
 }
@@ -1034,7 +1035,7 @@ section {
   font-weight: 600;
   line-height: 1;
   text-transform: uppercase;
-  color: #222222;
+  color: #102A83;
   margin-bottom: 5px;
   transition: all 0.3s ease-in-out;
   border-radius: 3px;
@@ -1233,7 +1234,7 @@ section {
 
 .team .member .social a {
   transition: color 0.3s;
-  color: #222222;
+  color: #102A83;
   margin: 0 10px;
   display: inline-flex;
   justify-content: center;
@@ -1261,7 +1262,7 @@ section {
   font-weight: 700;
   margin-bottom: 5px;
   font-size: 18px;
-  color: #222222;
+  color: #102A83;
 }
 
 .team .member .member-info span {
@@ -1301,7 +1302,7 @@ section {
   margin-top: 15px;
   font-size: 18px;
   font-weight: 600;
-  color: #222222;
+  color: #102A83;
 }
 
 .pricing .box h4 {
@@ -1327,7 +1328,7 @@ section {
 .pricing .box ul {
   padding: 0;
   list-style: none;
-  color: #222222;
+  color: #102A83;
   text-align: center;
   line-height: 20px;
   font-size: 14px;
@@ -1425,7 +1426,7 @@ section {
   line-height: 1;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #222222;
+  color: #102A83;
 }
 
 .contact .contact-about p {
@@ -1461,7 +1462,7 @@ section {
 }
 
 .contact .info {
-  color: #444444;
+  color: #102A83;
 }
 
 .contact .info i {
@@ -1628,18 +1629,18 @@ section {
   background: #fff;
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
   padding: 30px 0;
-  color: #222222;
+  color: #102A83;
   font-size: 14px;
 }
 
 #footer .credits {
   font-size: 13px;
   padding-top: 5px;
-  color: #222222;
+  color: #102A83;
 }
 
 #footer .footer-links a {
-  color: #222222;
+  color: #102A83;
   padding-left: 15px;
 }
 
@@ -1725,4 +1726,117 @@ section {
 }
 iframe:hover{
   scale: 1.010;
+}
+
+/*--------------------------------------------------------------
+# Seccion Calculadora de Hormigon
+--------------------------------------------------------------*/
+.calculator-container {
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9e9e9;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 25px;
+}
+
+.tab-button {
+  flex-grow: 1;
+  padding: 12px 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-button.active {
+  color: #F07C00; /* Color rojo de tu marca */
+  border-bottom-color: #F07C00;
+}
+
+.calc-content {
+  display: none;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.calc-content .form-group {
+  margin-bottom: 1rem;
+}
+
+.calc-content .form-group label {
+  font-weight: 500;
+  margin-bottom: .5rem;
+  color: #102A83;
+}
+
+.calc-button {
+  padding: 12px 40px;
+  background-color: #102A83; /* Color oscuro similar a tu web */
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+.calc-button:hover {
+  background-color: #F07C00; /* Se pone rojo al pasar el mouse */
+}
+
+.resultado {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 1.7;
+}
+
+.resultado strong {
+  font-size: 28px;
+  color: #c8102e;
+  font-weight: 700;
+  display: block;
+}
+
+.resultado .recomendacion {
+  font-size: 14px;
+  color: #555;
+  margin-top: 15px;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+.resultado .cta-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 25px;
+  background-color: #28a745; /* Botón verde para el CTA */
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.resultado .cta-button:hover {
+    background-color: #218838;
 }
